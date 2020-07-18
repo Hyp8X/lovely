@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2020 at 06:18 PM
+-- Generation Time: Jul 18, 2020 at 07:37 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -37,19 +37,13 @@ CREATE TABLE `keluar` (
   `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `list`
+-- Dumping data for table `keluar`
 --
 
-CREATE TABLE `list` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(40) NOT NULL,
-  `merk` varchar(20) NOT NULL,
-  `model` varchar(20) NOT NULL,
-  `qty` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `keluar` (`id`, `nama`, `merk`, `model`, `qty`, `tgl`, `time`) VALUES
+(2, 'CTB 20 Princess', 'EVERGREEN', 'CTB', 100, '2020-07-15', '2020-07-18 02:12:26'),
+(3, 'BMX E3', 'EVERGREEN', 'BMX', 70, '2020-07-14', '2020-07-18 05:36:16');
 
 -- --------------------------------------------------------
 
@@ -68,6 +62,14 @@ CREATE TABLE `masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `masuk`
+--
+
+INSERT INTO `masuk` (`id`, `nama`, `merk`, `model`, `qty`, `tgl`, `time`) VALUES
+(2, 'CTB 20 Princess', 'EVERGREEN', 'CTB', 300, '2020-07-13', '2020-07-18 02:45:46'),
+(3, 'BMX E3', 'EVERGREEN', 'BMX', 100, '2020-07-01', '2020-07-18 04:15:04');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -79,18 +81,27 @@ ALTER TABLE `keluar`
   ADD UNIQUE KEY `nama` (`nama`);
 
 --
--- Indexes for table `list`
---
-ALTER TABLE `list`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `nama` (`nama`);
-
---
 -- Indexes for table `masuk`
 --
 ALTER TABLE `masuk`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `nama` (`nama`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `keluar`
+--
+ALTER TABLE `keluar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `masuk`
+--
+ALTER TABLE `masuk`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

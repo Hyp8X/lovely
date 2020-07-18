@@ -11,7 +11,7 @@
     <title>Lovely Metal</title>
   </head>
   <body>
-    
+
     <!-- Navbar -->
       <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <a class="navbar-brand" href="#">LOVELY METAL</a>
@@ -43,41 +43,36 @@
       </nav>
 
     <!-- Tabel -->
-    <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">No</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Merk</th>
-      <th scope="col">Model</th>
-      <th scope="col">Kuantitas</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>10</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry the Bird</td>
-      <td>Squirels</td>
-      <td>@twitter</td>
-      <td>10</td>
-    </tr>
-    <tr></tr>
-  </tbody>
-</table>
+        <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Merk</th>
+          <th scope="col">Model</th>
+          <th scope="col">Kuantitas</th>
+        </tr>
+      </thead>
+      <tbody>
+                <?php 
+        include 'koneksi.php';
+        $sepeda = mysqli_query($koneksi, "SELECT * FROM masuk");
+        $awok = mysqli_query($koneksi, "SELECT masuk.qty-keluar.qty as hasil FROM masuk join keluar on masuk.id=keluar.id");
+       
+        $nomor = 1;
+        while($data = mysqli_fetch_array($sepeda)){
+        ?>
+        <tr>
+          <td><?php echo $nomor++; ?></td>
+          <td><?php echo $data['nama']; ?></td>
+          <td><?php echo $data['merk']; ?></td>
+          <td><?php echo $data['model']; ?></td>
+          <td><?php echo $data1 = mysqli_fetch_array($awok)['hasil']; ?></td>
+
+        </tr>
+        <?php } ?>
+      </tbody>
+    </table>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

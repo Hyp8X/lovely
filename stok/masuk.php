@@ -120,40 +120,23 @@
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>10</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td>10</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry the Bird</td>
-      <td>Squirels</td>
-      <td>@twitter</td>
-      <td>10</td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry the Bird</td>
-      <td>Squirels</td>
-      <td>@twitter</td>
-      <td>10</td>
-      <td></td>
-      <td></td>
+        <?php 
+        include 'koneksi.php';
+        $sepeda = mysqli_query($koneksi, "SELECT * FROM masuk");
+        $nomor = 1;
+        while($data = mysqli_fetch_array($sepeda)){
+        ?>
+        <tr>
+          <td><?php echo $nomor++; ?></td>
+          <td><?php echo $data['nama']; ?></td>
+          <td><?php echo $data['merk']; ?></td>
+          <td><?php echo $data['model']; ?></td>
+          <td><?php echo $data['qty']; ?></td>
+          <td><?php echo $data['tgl']; ?></td>
+          <td><?php echo $data['time']; ?></td>
+
+        </tr>
+        <?php } ?>
     </tr>
   </tbody>
 </table>
